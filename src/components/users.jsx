@@ -1,31 +1,17 @@
 import React, { useState } from 'react';
 import api from '../api';
+import renderPhrase from './searchStatus';
+import renderQualities from './qualitie';
+
+
 
 const Users = () => {
     const [users, setUsers] = useState(api.users.fetchAll());
     const handleDelete = (userId) => {
       let newUsers = users.filter(user => user._id !== userId)
       setUsers(newUsers)
-
     };
-    const renderPhrase = (number) => {
-      const lastOne = Number(number.toString().slice(-1));
-      if (number > 4 && number < 15) return "человек тусанет";
-      if ([2, 3, 4].indexOf(lastOne) >= 0) return "человека тусанут";
-      if (lastOne === 1) return "человек тусанет";
-      return "человек тусанет";  
 
-    };
-  console.log(users);
-  const renderQualities = (qualities) => {
-    return qualities.map((qualitie) => {
-      return (
-        <span key = {qualitie._id} className={`badge bg-${qualitie.color} m-1`}>
-          {qualitie.name}
-        </span> 
-      )
-    })
-  }
   let usersInfo = users.map((item) => {
     return (
        <tr key = {item._id}>
@@ -34,6 +20,9 @@ const Users = () => {
         <td>{item.profession.name}</td>
         <td>{item.completedMeetings}</td>
         <td>{item.rate} /5</td>
+        <td>
+          <button className='bi bi-bookmark-dash'></button>
+        </td>
         <td>
           <button className='btn btn-danger' onClick={() => handleDelete(item._id)}>delete</button>
         </td>
@@ -60,6 +49,7 @@ const Users = () => {
       <th scope="col">Профессия</th>
       <th scope="col">Встретился, раз</th>
       <th scope="col">Оценка</th>
+      <th scope="col">Избранное</th>
       <th scope="col"></th>
     </tr>
   </thead>

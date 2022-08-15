@@ -1,6 +1,4 @@
-import React from 'react';
-// import api from "../api";
-// import users from './users';
+import React from 'react'
 
 
 

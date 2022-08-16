@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const RenderQualities = (qualities) => {
     return qualities.map((qualitie) => {
       return (

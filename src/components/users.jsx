@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import api from '../api';
 import renderPhrase from './searchStatus';
 import renderQualities from './qualitie';
-
+import bookmark from './bookmark';
 
 
 const Users = () => {
@@ -21,7 +21,7 @@ const Users = () => {
         <td>{item.completedMeetings}</td>
         <td>{item.rate} /5</td>
         <td>
-          <button className='bi bi-bookmark-dash'></button>
+          <button>{bookmark(item._id)}</button>
         </td>
         <td>
           <button className='btn btn-danger' onClick={() => handleDelete(item._id)}>delete</button>

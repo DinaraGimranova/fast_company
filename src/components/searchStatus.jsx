@@ -1,7 +1,5 @@
 import React from 'react'
 
-
-
 const RenderPhrase = (number) => {
     const lastOne = Number(number.toString().slice(-1));
     if (number > 4 && number < 15) return "человек тусанет";

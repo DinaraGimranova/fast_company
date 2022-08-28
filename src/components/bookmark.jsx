@@ -1,11 +1,13 @@
 import React from "react";
 
-const Bookmark = ({ status, ...rest }) => {
+const BookMark = ({ status, ...rest }) => {
     return (
         <button {...rest}>
         <i className={"bi bi-bookmark-plus" + status ? "-fill" : ""}></i>  
    
-       </button>
+        </button>
     );
 };
-export default Bookmark;
+
+export default BookMark;
+

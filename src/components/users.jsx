@@ -3,7 +3,7 @@ import api from '../api';
 import renderPhrase from './searchStatus';
 import renderQualities from './qualitie';
 import bookmark from './bookmark';
-
+// import user from './user';
 
 const Users = () => {
     const [users, setUsers] = useState(api.users.fetchAll());
@@ -20,16 +20,12 @@ const Users = () => {
         <td>{item.profession.name}</td>
         <td>{item.completedMeetings}</td>
         <td>{item.rate} /5</td>
-        <td>
-          <button>{bookmark(item._id)}</button>
-        </td>
+        <td>{bookmark(item._id)}</td>
         <td>
           <button className='btn btn-danger' onClick={() => handleDelete(item._id)}>delete</button>
         </td>
       </tr>
-     
     )
-    
     })
     return (
         <>
@@ -56,10 +52,8 @@ const Users = () => {
 <tbody>
   {usersInfo}
 </tbody>
-
   </table>
   </>
     )
 };
-
 export default Users;
